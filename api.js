@@ -408,6 +408,13 @@ function init() {
     myGeolocationControl.events.add('locationchange', function(event) {
         crosshairCoords = event.get('position');
         document.getElementById("coordsLabel").value = crosshairCoords.join(", ");
+        var myGeocode = ymaps.geocode(crosshairCoords).then(
+            function(res) {
+                var nearest = res.geoObjects.get(0);
+                address = nearest.properties.get('metaDataProperty.GeocoderMetaData').Address.formatted;
+                
+                document.getElementById("addressLabel").value = address;
+            });
         myPlacemark.geometry.setCoordinates(crosshairCoords);
         myMap.geoObjects.add(myPlacemark);
     });
