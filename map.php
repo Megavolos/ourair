@@ -8,6 +8,7 @@
     <script src="api.js"></script>
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="tab3.css">
 </head>
 <body>
     <div id="topLayer">
@@ -149,8 +150,25 @@
                     </section>
                 <section>
 
-                        <a href="logout.php">Выйти</a>
-
+                      
+                        <form action="login.php" id="loginForm" method="post">
+                                Вы не авторизованы, введите логин и пароль:<br>
+                                <input type="text" name="login" id='login_name' placeholder="Логин">
+                                <input type="password" name="password" placeholder="Пароль">
+                            
+                                <button type="submit" name="do_login"> Войти</button>
+                                <input type="button" name="openRegisterMenu" id="openRegisterMenuButton" onclick="openRegisterMenu();" value="Зарегистрироваться">
+                        </form>
+                        
+                        <form action="signup.php" method="POST" id="signupForm">
+                            Регистрация <br>
+                      
+                                <input type="text" name="login" placeholder="Придумайте логин">
+                                <input type="e-mail" name="e-mail" placeholder="Ваш e-mail"> <br> 
+                                <input type="password" name="password" placeholder="Придумайте пароль">
+                                <input type="password" name="password2" placeholder="Повторите пароль">
+                                <button type="submit" name="do_signup"> Зарегистрироваться</button>
+                        </form>
                         </section>
 
 

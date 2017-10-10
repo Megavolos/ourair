@@ -10,6 +10,11 @@ function getCookie(name) {
     ));
     return matches ? decodeURIComponent(matches[1]) : undefined;
 }
+function openRegisterMenu(){
+        signupForm.style.display="block";
+        loginForm.style.display="none";
+        document.getElementById("openRegisterMenuButton").style.display="none";
+    }
 
 function isValidDate(dateString) {
     var parts = dateString.split('.');
@@ -607,6 +612,15 @@ function init() {
 
 
     }
+    var loginForm = document.getElementById("loginForm"); 
+    var signupForm = document.getElementById("signupForm");
+
+    var response = getCookie("userid");
+    if (response!=undefined)
+    {
+        loginForm.style.display="none";
+        signupForm.style.display="none";
+    }   
 }
 
 
